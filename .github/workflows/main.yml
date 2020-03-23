@@ -3,8 +3,10 @@ on: [push]
 jobs:
   build:
     runs-on: ubuntu-18.04
-    name: A job to say hello
+    name: build and push docker image.
     steps:
+      - name: debug directory
+        run: ls
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
