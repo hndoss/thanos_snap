@@ -1,4 +1,6 @@
 .dockerignore
+.github/
+
 README.node_modules
 
 .### OSX ###
