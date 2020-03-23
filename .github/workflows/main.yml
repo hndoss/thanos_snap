@@ -10,6 +10,7 @@ jobs:
     steps:
       - name: debug directory
         run: ls Dockerfile
+        working-directory: .
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
