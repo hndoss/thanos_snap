@@ -1,3 +1,3 @@
-variable "access_key" {}
-variable "secret_key" {}
-variable "aws_region" {}
+variable "aws_region" {
+  description = "Region where the terraform state is pointing to."
+}
