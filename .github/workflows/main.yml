@@ -9,9 +9,7 @@ jobs:
     name: build and push docker image.
     steps:
       - name: debug directory
-        run: |
-          export debug=$(ls)
-          echo "${debug}"
+        run: ls Dockerfile
       - uses: docker/build-push-action@v1
         with:
           username: ${{ secrets.DOCKER_USERNAME }}
