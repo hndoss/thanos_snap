@@ -55,13 +55,8 @@ def init_terraform(dir='.', backend_config=''):
 
 def destroy_local_environment(region='', file=''):
     print('Destroying local terraform state.')
-    current_directory = os.getcwd()
-    try:
-        copyfile(file, current_directory + '/local')
-    except:
-        print('An error occured with the file ' + file)
-    tf = init_terraform('local')
-    tf.destroy(capture_output=False, vars={'aws_region': region})
+    tf = init_terraform(dir='local')
+    tf.destroy(capture_output=False, state=file, vars={'aws_region': region})
 
 
 def destroy_remote_environment(bucket='', key='', region=''):
@@ -71,7 +66,7 @@ def destroy_remote_environment(bucket='', key='', region=''):
         'bucket': bucket,
         'region': region
     }
-    tf = init_terraform('remote', backend_config=config)
+    tf = init_terraform(dir='remote', backend_config=config)
     tf.destroy(capture_output=False, vars={'aws_region': region})
 
 
