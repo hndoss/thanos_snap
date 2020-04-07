@@ -1,1 +1,1 @@
-python main.py --project falcon --branch my-branch
+### Delete Terraform States
