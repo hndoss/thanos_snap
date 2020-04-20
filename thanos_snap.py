@@ -1,5 +1,4 @@
 from python_terraform import Terraform
-from thanos_banners import *
 from shutil import copyfile
 import argparse
 import os
@@ -74,15 +73,10 @@ def main():
     args = parse_arguments()
     validate_context(args)
 
-    print_thanos_banner_before_snap()
-
     if args.location == 'remote':
         destroy_remote_environment(
             bucket=args.bucket, key=args.key, region=args.region)
     else:
         destroy_local_environment(region=args.key, file=args.file)
-
-    print_thanos_banner_after_snap()
-
 
 main()
